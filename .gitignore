@@ -1,0 +1,29 @@
+
+# Java compiled files
+*.class
+
+# Build output
+**/target/
+**/bin/
+
+# Eclipse metadata
+.metadata/
+**/.settings/
+**/.classpath
+**/.project
+
+# IDE configuration
+.idea/
+.vscode/
+
+# Environment and secrets
+.env
+.env.*
+application-local.properties
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
