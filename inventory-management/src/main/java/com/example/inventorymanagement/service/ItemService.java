@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.example.inventorymanagement.exception.ItemNotFoundException;
 
 import com.example.inventorymanagement.model.Item;
 import com.example.inventorymanagement.repository.ItemRepository;
@@ -31,8 +32,7 @@ public class ItemService {
     public Item getItemById(Long id) {
         return itemRepository.findById(id)
                 .orElseThrow(() ->
-                    new IllegalArgumentException(
-                        "Item not found with ID: " + id));
+                    new ItemNotFoundException(id));
     }
 
     @Transactional

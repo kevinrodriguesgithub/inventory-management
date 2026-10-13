@@ -66,18 +66,4 @@ public class ItemController {
 
         return itemService.updateQuantity(id, quantity);
     }
-
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, String>> handleException(
-            IllegalArgumentException exception) {
-
-        HttpStatus status =
-                exception.getMessage().startsWith("Item not found")
-                ? HttpStatus.NOT_FOUND
-                : HttpStatus.BAD_REQUEST;
-
-        return ResponseEntity
-                .status(status)
-                .body(Map.of("error", exception.getMessage()));
-    }
 }
